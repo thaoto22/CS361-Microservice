@@ -30,3 +30,4 @@ The purpose of this is to show how to request and retrieve data for microservice
 6. **Retrieve Processed Data**  
    - The main program reads `receive.txt` to extract and use the prioritized task list.  
 
+![Blank diagram](https://github.com/user-attachments/assets/8a29680e-20fd-4334-b395-761ae01725ae)
