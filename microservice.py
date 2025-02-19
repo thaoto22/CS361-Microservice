@@ -1,21 +1,30 @@
 import time
+import pandas as pd
 
 
-def request():
+def microservice():
     """
-    reads "request.txt" and if it is equal to "run" then enter data into 
-    receive.txt
+    reads "request.txt" and if it has data then process data and 
+    place it in "receive.txt"
     """
     while True:
         time.sleep(5)
-        
+
         with open("request.txt", "r") as file:
             content = file.read()
 
-            if content == "run":
-                print("requesting data")
-                with open("receive.txt", "w", encoding="utf-8") as file:
-                    file.write("Requesting Data")
+            if content:
+                print("requesting data received")
+                
+                df = pd.read_csv("request.txt")
+                print(df)
+                priority_order = {'high': 1, 'medium': 2, 'low': 3}
+                
+                df['priority_rank'] = df['priority'].map(priority_order)
+
+                df_sort = df.sort_values(by=["date", "priority"]).drop(columns=["priority_rank"])
+                print(df_sort)
+                df_sort.to_csv("receive.txt", index=False, sep=",", mode="w", header=True)
                 
                 time.sleep(5)
 
@@ -24,4 +33,4 @@ def request():
 
 
 if __name__ == "__main__":
-    request()
+    microservice()

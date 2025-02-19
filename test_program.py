@@ -14,14 +14,10 @@ def test_program():
              "Clean room": ["low", "01/12/2023"],
              }
     
-    with open("request.txt", "r") as file:
-        message = file.read()
-
-        if not message:
-            with open("request.txt", "w", encoding="utf-8") as file:
-                file.write("task,priority,date\n")
-                for key, value in tasks.items():
-                    file.write(f'{key},{value[0]},{value[1]}\n')
+    with open("request.txt", "w", encoding="utf-8") as file:
+        file.write("task,priority,date\n")
+        for key, value in tasks.items():
+            file.write(f'{key},{value[0]},{value[1]}\n')
     
     is_output_pending = True
 
