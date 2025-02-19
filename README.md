@@ -1,6 +1,6 @@
 # CS361-Microservice
 
-The purpose of this is to show how to request and retrieve data for microservice of prioritizing tasks
+The purpose of this is to show how to request and retrieve data for the microservice of prioritizing tasks
 
 ### Step-by-Step Process for Using the Microservice  
 
