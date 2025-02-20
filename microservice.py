@@ -5,7 +5,7 @@ import pandas as pd
 def microservice():
     """
     reads "request.txt" and if it has data then process data and 
-    place it in "receive.txt"
+    place it in "response.txt"
     """
     while True:
         time.sleep(5)
@@ -24,7 +24,7 @@ def microservice():
 
                 df_sort = df.sort_values(by=["date", "priority"]).drop(columns=["priority_rank"])
                 print(df_sort)
-                df_sort.to_csv("receive.txt", index=False, sep=",", mode="w", header=True)
+                df_sort.to_csv("response.txt", index=False, sep=",", mode="w", header=True)
                 
                 time.sleep(5)
 

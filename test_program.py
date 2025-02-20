@@ -23,14 +23,14 @@ def test_program():
 
     while is_output_pending:
             
-            with open("receive.txt", "r") as file:
+            with open("response.txt", "r") as file:
                 data = file.read()
 
             if data:
                 print(data)
 
-                # Remove data from receive.txt 
-                with open("receive.txt", "w", encoding="utf-8") as file:
+                # Remove data from response.txt 
+                with open("response.txt", "w", encoding="utf-8") as file:
                     file.write("")
 
                 # Remove data from request.txt
